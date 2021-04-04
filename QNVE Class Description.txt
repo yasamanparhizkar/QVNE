@@ -1,0 +1,264 @@
+global variables:
+# basic parameters
+min_V_size
+max_V_size
+min_cpu_cap
+max_cpu_cap
+min_bw_cap
+max_bw_cap
+
+# problem description variables
+initializer = instance of Initializer
+SN = (V0, E0, B, K)
+VN = (V1, E1, T1, D1)
+n
+m
+xc_sn, yc_sn, instance_sn
+xc_vn, yc_vn, instance_vn
+
+# node mapping
+node_map = instance of NodeMap
+nm
+
+# quantum routing
+src_vn, des_vn
+src_sn, des_sn
+quantum_optimizer = instance of QuantumOptimizer
+Q, g, c, binary_cost
+qp
+quantum_solution, quantum_cost
+
+# link mapping
+linkmap = instance of LinkMap
+links = list of required links in SN (list of (int, int))
+lm = link map from links in SN to path in SN (dict (int, int): (list of int, int))
+
+# QVNE all in one
+
+
+class Initializer():
+
+    var:
+    min_V_size (int)
+    max_V_size (int)
+    min_cpu_cap (int)
+    max_cpu_cap (int)
+    min_bw_cap (int)
+    max_bw_cap (int)
+    
+    methods:
+    def __init__(self, min_V_size, max_V_size, min_cpu_cap, max_cpu_cap, min_bw_cap, max_bw_cap):
+    
+    def generate_problem(self):
+        return (SN, VN)
+    
+    def generate_random_graph(self, n):
+        return (V, E, T, D)
+    
+    def generate_instance(self, n, D):
+        return xc, yc, instance
+    
+    def visualize_graph(self, xc, yc, instance, B, n, title_str, show_weights = True):
+
+
+
+
+class NodeMap():
+    
+    var:
+    V0 (list of int)
+    E0 (list of (int,int))
+    B (dict int: int)
+    K (dict (int,int): int)
+    V1 (list of int)
+    E1 (list of (int,int))
+    T1 (dict int: int)
+    D1 (dict (int,int): int)
+    
+    methods:
+    def __init__(self, SN, VN):
+    
+    # First policy: max demand node -> max capacity node
+    def map_p1(self, show_results = True):
+        return node_map (dict int: int)
+        # if not feasible, returns {i: -1 for i in V}
+    
+    # Second policy: each node in sequence -> colsest capacity to the demand of that node
+    def map_p2(self, show_results = True):
+        return node_map (dict int: int)
+        # if not feasible, returns {i: -1 for i in V}
+    
+    # Third policy: summation of differences between node capacities and demands will be minimum
+    def map_p3(self, show_results = True):
+        return node_map (dict int: int)
+        # if not feasible, returns {i: -1 for i in V}
+    
+    def is_feasible(self, node_map):
+        return True/False
+
+
+
+class QuantumOptimizer:
+    
+    var:
+    instance (2D list)
+    n (int)
+    src (int)
+    des (int)
+    z_id (list of int)  # index of optimization variables in instance vector
+    m (int)  # number of available edges
+    
+    methods:
+    def __init__(self, instance, n, src, des):
+    
+    def binary_representation(self,x_sol=0,show_error = True):
+        return Q, g, c, cost
+    
+    def construct_problem(self, Q, g, c) -> QuadraticProgram:
+        return qp
+    
+    def solve_problem(self, qp, show_error = True):
+        return z_res, level
+        # if m==0, returns [], 0
+        # if no route can be found, returns [0 ... 0], C>=2A
+
+
+
+class LinkMap:
+    
+    var:
+    V0 (list of int)
+    E0 (list of (int,int))
+    B (dict int: int)
+    K (dict (int,int): int)
+    V1 (list of int)
+    E1 (list of (int,int))
+    T1 (dict int: int)
+    D1 (dict (int,int): int)
+    n (int)
+    instance_sn (2D list)
+    node_map (dict int: int)
+    
+    methods:
+    def __init__(self, SN, VN, instance_sn, node_map):
+    
+    # Get requested links on substrate network
+    def get_links(self):
+        return links (list of (int, int))
+        # if no edges in VN, returns []
+    
+    def get_route(self, src, des):
+        return quantum_solution, quantum_cost
+        # if m==0 (no edges in SN), returns [], 0
+    
+    # subtract demand of VN edge from every edge in equivalent SN path
+    def update_sn(self, x, demand):
+    
+    def map_links(self, show_results = True):
+        return lm
+        # if no edges in SN, returns ([], 0) for all links in lm
+        # if any path is not feasible, returns ([infeasible path], 0) in place for that specific link
+        # if no edges in VN, returns {}
+    
+    def is_feasible(self, x, C, demand):
+        return True/False
+    
+    def display_map(self, lm):
+
+
+
+
+class QVNE:
+    
+    var:
+    # basic parameters
+    min_V_size (int)
+    max_V_size (int)
+    min_cpu_cap (int)
+    max_cpu_cap (int)
+    min_bw_cap (int)
+    max_bw_cap (int)
+
+    # problem description variables
+    SN (tuple of (V0, E0, B, K))
+    VN (tuple of (V1, E1, T1, D1))
+    xc_sn (list of int)
+    yc_sn (list of int)
+    xc_vn (list of int)
+    yc_vn (list of int)
+    instance_sn (2D list)
+    instance_vn (2D list)
+    n (int)
+    m (int)
+
+    # solution variables
+    nm = VN node -> SN node (dict int: int)
+    lm = link in SN -> path in SN and cost (dict (int, int): (list of int, int))
+    links = required links in SN (list of (int, int))
+    
+    methods:
+    def __init__(self, min_V_size, max_V_size, min_cpu_cap, max_cpu_cap, min_bw_cap, max_bw_cap):
+    
+    # Setup the problem
+    def setup_problem(self, show_results = True):
+    
+    # Map nodes of virtual network to subtrate network (three policies are available)   
+    def node_map(self, policy = 1, show_results = True):
+        return nm
+        # if not feasible or policy number out of range, returns {i: -1 for i in V}
+    
+    # Map edges of virtual network to paths in substrate network
+    def link_map(self, show_results = True):
+        return lm, links
+        # if node map is infeasible (i.e. nm[0]==-1), returns {},[]
+        # if no edges in SN, returns ([], 0) for all links in lm
+        # if any path is not feasible, returns ([infeasible path], 0) in place for that specific link
+        # if no edges in VN, returns {},[]
+    
+    # Visualize the optimized route on SN using its x vector
+    def visualize_route(self, src, des):
+    
+    # Check if node map and link map are both feasible
+    def is_success(self):
+        return True/False
+    
+    def set_links(self, links):
+    
+    def set_lm(self, lm):
+    
+    def run(self, nm_policy = 1, show_results = True):
+        return success
+    
+    def success_ratio(self, nm_policy = 1, shots = 3):
+        return success_ratio
+
+
+****************************************************************************
+
+* Issues:
+    1- if one found path is not feasible, LinkMap.map_links() immediately returns lm[(i, j)] = ([infeasible path], 0)
+    and does not try other paths after that which leads to low success ratio.
+    Suggestion: embed feasibility constraints in QP formulation so that it gets considered while finding the path.
+        
+    2- quantum optimizer can get stuck in a local minimum and yield wrong results (compared to classical solution)
+    if random seed in QuantumOptimizer.solve_problem() is inept.
+    Suggestion:
+    
+
+* Special Cases:
+    1- no edges in SN
+    2- no edges in VN
+
+* Checked Cases:
+    1- node map and link map both are feasible (one edge). correct
+    2- node map is feasible but link map is not feasible, though a path is found by quantum optimizer (one edge). correct
+    3- node map is not feasible. correct
+    4- node map and link map both are feasible (two edges). correct
+    5- shortest path has more that one edge. incorrect: returns the one edge path
+        reason: quantum optimizer gets stuck in local minimum. unfortunately, this problem occurs often.
+    6- capacity of SN edge gets lower than demand after previous update. correct
+    7- SN has no edges. correct
+    8- VN has no edges. correct
+    9- SN and VN both have no edges. correct
+
+
