@@ -15,5 +15,8 @@ _This is my degree project for BSc in electrical engineering at the University o
   1. Node mapping is done by classical algorithms.
   2. Link mapping is done by a quantum-classical algorithm.
 
+* I use IBM's Qiskit module to simulate the quantum circuit. 
+[This tutorial](https://qiskit.org/documentation/tutorials/optimization/7_examples_vehicle_routing.html) specially helped me in writing the code.
+
 
 #### Last edit: June 3, 2021
