@@ -1,5 +1,5 @@
 # QVNE
-## Virtual Network Embedding Problem With Quantum Optimization (Qiskit's QuadraticProgram)
+## Virtual Network Embedding Problem With Quantum Optimization (Qiskit's VQE)
 
 _This is my degree project for BSc in electrical engineering at the University of Tehran_
 
