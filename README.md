@@ -6,6 +6,8 @@ _This is my degree project for BSc in electrical engineering at the University o
 
 #### Note: If you just want to use the QVNE class and do not wish to know how it works under the hood, there are three examples included at the end of the note to show you how you can use the class, ordered from hard to easy.
 
+__Required packages are listed in *requirements.txt* file__
+
 
 * The main object being built in this note is named QVNE; you can use QVNE to:
   1. randomly construct two graphs (named Subtrate Network and Virtual Network), and
@@ -19,4 +21,4 @@ _This is my degree project for BSc in electrical engineering at the University o
 [This tutorial](https://qiskit.org/documentation/tutorials/optimization/7_examples_vehicle_routing.html) specially helped me in writing the code.
 
 
-#### Last edit: June 11, 2021
+#### Last edit: July 11, 2022
