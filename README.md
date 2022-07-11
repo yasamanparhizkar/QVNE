@@ -15,7 +15,7 @@ __Required packages are listed in *requirements.txt* file__
 
 * The mapping is divided into two sub-tasks; Node Mapping and Link Mapping.
   1. Node mapping is done by classical algorithms.
-  2. Link mapping has two options: classical method (by CPLEX) or quantum-classical method (by Qiskit's VQE)
+  2. Link mapping has two options: classical method (by CPLEX) or quantum-classical method (by Qiskit's QAOA)
 
 * I use IBM's Qiskit module to simulate the quantum circuit. 
 [This tutorial](https://qiskit.org/documentation/tutorials/optimization/7_examples_vehicle_routing.html) specially helped me in writing the code.
