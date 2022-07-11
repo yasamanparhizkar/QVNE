@@ -1,7 +1,7 @@
 # QVNE
 ## Virtual Network Embedding Problem With Quantum Optimization (Qiskit's VQE)
 
-_This is my degree project for BSc in electrical engineering at the University of Tehran_
+_This is my B.Sc. degree project for electrical engineering at the University of Tehran_
 
 
 #### Note: If you just want to use the QVNE class and do not wish to know how it works under the hood, there are three examples included at the end of the note to show you how you can use the class, ordered from hard to easy.
