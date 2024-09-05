@@ -20,5 +20,19 @@ __Required packages are listed in *requirements.txt* file__
 * I use IBM's Qiskit module to simulate the quantum circuit. 
 [This tutorial](https://qiskit.org/documentation/tutorials/optimization/7_examples_vehicle_routing.html) specially helped me in writing the code.
 
+#### Last edit of the code: July 11, 2022
 
-#### Last edit: July 11, 2022
+## Apache-2.0 License
+Copyright 2024 Yasaman Parhizkar
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
